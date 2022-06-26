@@ -23,9 +23,10 @@ public class Factura {
     private Integer porcentajeDescuento;
     private Float valorDescuento = 0f;
     
+    private Proveedor proveedor;
     private Empresa empresa;
     private Cliente cliente;
-    private List<Detalle> detalleList;
+    protected List<Detalle> detalleList;
 
     public Factura() {
         detalleList = new LinkedList<>();
@@ -37,10 +38,29 @@ public class Factura {
         this.cliente = cliente;
     }
 
-    public Factura(String fecha, Empresa empresa) {
-        this();
+    public Factura(String fecha, Proveedor proveedor) {
         this.fecha = fecha;
-        this.empresa = empresa;
+        this.proveedor = proveedor;
+    }
+
+    public void agregarDetalle(Detalle detalle){
+        this.detalleList.add(new Detalle(detalle.getCantidad(), this, detalle.getProducto()));
+    }
+    
+    public void calcularSubtotal(){
+        for (Detalle detalle : detalleList) {
+            this.subtotal = subtotal + detalle.getValorTotal();
+        }
+        calcularIva();
+    }
+    
+    public void calcularIva(){
+        this.montoIVA = subtotal * empresa.getPorcentajeIVA()/100;
+        calcularTotal();
+    }
+    
+    public void calcularTotal(){
+        this.total = subtotal + montoIVA;
     }
     
     public String getNumFactura() {
@@ -138,6 +158,16 @@ public class Factura {
     public void setValorDescuento(Float valorDescuento) {
         this.valorDescuento = valorDescuento;
     }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+    
+    
 
     @Override
     public String toString() {

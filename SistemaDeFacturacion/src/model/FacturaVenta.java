@@ -16,4 +16,12 @@ public class FacturaVenta extends Factura{
     public FacturaVenta(String fecha, Cliente cliente) {
         super(fecha, cliente);
     }
+    
+    public void disminuirInventario(){
+        for (Detalle detalle : detalleList) {
+            int aux = detalle.getProducto().getStock() - detalle.getCantidad();
+            detalle.getProducto().setStock(aux);
+            System.out.println(detalle.getProducto().getStock());
+        }
+    }
 }

@@ -20,6 +20,11 @@ public class Empleado extends Persona{
         super(nombre, apellido, cedula);
     }
 
+    public Empleado(String nombre, String apellido, String cedula, Empresa empresa) {
+        super(nombre, apellido, cedula);
+        this.empresa = empresa;
+    }
+    
     public String getIdEmpleado() {
         return idEmpleado;
     }

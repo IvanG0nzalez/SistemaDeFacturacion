@@ -25,6 +25,10 @@ public class Cliente extends Persona{
         super(nombre, apellido, cedula);
     }
 
+    public Cliente(String nombre, String apellido, String cedula, Direccion direccion) {
+        super(nombre, apellido, cedula, direccion);
+    }
+    
     public Empresa getEmpresa() {
         return empresa;
     }

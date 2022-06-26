@@ -6,8 +6,38 @@ package model;
 
 /**
  *
- * @author Iván González
+ * @author GrupoSistemadeFacturacion
  */
-public class Empleado {
-    
+public class Empleado extends Persona{
+    private String idEmpleado;
+
+    private Empresa empresa;
+
+    public Empleado() {
+    }
+
+    public Empleado(String nombre, String apellido, String cedula) {
+        super(nombre, apellido, cedula);
+    }
+
+    public String getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(String idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Empleado{" + "idEmpleado=" + idEmpleado + '}';
+//    }
 }

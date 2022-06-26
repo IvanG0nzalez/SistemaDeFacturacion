@@ -8,12 +8,13 @@ package model;
  *
  * @author GrupoSistemadeFacturacion
  */
-public class FacturaCompra extends Factura {
-   
-    public FacturaCompra() {
+public class Proveedor extends Empresa{
+    private Empresa empresa;
+    
+    public Proveedor() {
     }
 
-    public FacturaCompra(String fecha, Empresa empresa) {
-        super(fecha, empresa);
+    public Proveedor(String nombre, String ruc) {
+        super(nombre, ruc);
     }
 }

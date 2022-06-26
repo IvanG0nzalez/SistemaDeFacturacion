@@ -6,8 +6,14 @@ package model;
 
 /**
  *
- * @author Iván González
+ * @author GrupoSistemadeFacturacion
  */
-public class FacturaVenta {
+public class FacturaVenta extends Factura{
     
+    public FacturaVenta() {
+    }
+
+    public FacturaVenta(String fecha, Cliente cliente) {
+        super(fecha, cliente);
+    }
 }

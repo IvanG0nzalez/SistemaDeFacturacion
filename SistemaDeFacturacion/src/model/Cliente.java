@@ -4,11 +4,40 @@
  */
 package model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
- * @author Iván González
+ * @author GrupoSistemadeFacturacion
  */
-public class Cliente {
-    
+public class Cliente extends Persona{
+
     private  Boolean isCliente = true;
+    private List<Factura> facturaList;
+    private Empresa empresa;
+    
+    public Cliente() {
+        facturaList = new LinkedList<>();
+    }
+
+    public Cliente(String nombre, String apellido, String cedula) {
+        super(nombre, apellido, cedula);
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public List<Factura> getFacturaList() {
+        return facturaList;
+    }
+
+    public void setFacturaList(List<Factura> facturaList) {
+        this.facturaList = facturaList;
+    }
 }
